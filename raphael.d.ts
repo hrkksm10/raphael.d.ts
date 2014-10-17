@@ -3,6 +3,7 @@
 // Fork: https://github.com/hrkksm10/raphael
 
 interface BoundingBox {
+
     x: number;
     y: number;
     x2: number;
@@ -12,6 +13,7 @@ interface BoundingBox {
 }
 
 interface RaphaelAnimation {
+
     delay(delay: number): RaphaelAnimation;
     repeat(repeat: number): RaphaelAnimation;
 }
@@ -20,37 +22,44 @@ interface RaphaelFont {
 }
 
 interface RaphaelElement {
+
     animate(params: {}, ms: number, easing?: string, callback?: Function): RaphaelElement;
     animate(animation: RaphaelAnimation): RaphaelElement;
     animateWith(el: RaphaelElement, anim: RaphaelAnimation, params: any, ms: number, easing?: string, callback?: Function): RaphaelElement;
     animateWith(el: RaphaelElement, anim: RaphaelAnimation, animation: RaphaelAnimation): RaphaelElement;
+
     attr(attrName: string, value: any): RaphaelElement;
     attr(attrName: string): any;
     attr(attrNames: string[]): any[];
     attr(params: {}): RaphaelElement;
-    click(handler: Function, context?: any): RaphaelElement;
+
     clone(): RaphaelElement;
+
     data(key: string, value: any): RaphaelElement;
     data(key: string): any;
     data(values: {}): RaphaelElement;
-    dblclick(handler: Function, context?: any): RaphaelElement;
-    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) => void, onstart: (x: number, y: number, event: DragEvent) => void, onend: (DragEvent: any) => void, mcontext?: any, scontext?: any, econtext?: any): RaphaelElement;
+
     getBBox(isWithoutTransform?: boolean): BoundingBox;
     getData(): any;
     glow(glow?: { width?: number; fill?: boolean; opacity?: number; offsetx?: number; offsety?: number; color?: string; }): RaphaelSet;
     hide(): RaphaelElement;
-    hover(f_in: Function, f_out: Function, icontext?: any, ocontext?: any): RaphaelElement;
     id: string;
     insertAfter(): RaphaelElement;
     insertBefore(): RaphaelElement;
     isPointInside(x: number, y: number): boolean;
     isVisible(): boolean;
     matrix: RaphaelMatrix;
+
+    click(handler: Function, context?: any): RaphaelElement;
+    dblclick(handler: Function, context?: any): RaphaelElement;
+    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) => void, onstart: (x: number, y: number, event: DragEvent) => void, onend: (DragEvent: any) => void, mcontext?: any, scontext?: any, econtext?: any): RaphaelElement;
+    hover(f_in: Function, f_out: Function, icontext?: any, ocontext?: any): RaphaelElement;
     mousedown(handler: Function, context?: any): RaphaelElement;
     mousemove(handler: Function, context?: any): RaphaelElement;
     mouseout(handler: Function, context?: any): RaphaelElement;
     mouseover(handler: Function, context?: any): RaphaelElement;
     mouseup(handler: Function, context?: any): RaphaelElement;
+
     next: RaphaelElement;
     node: any; // SVGElement;
     onDragOver(f: Function): RaphaelElement;
@@ -58,25 +67,35 @@ interface RaphaelElement {
     pause(anim?: RaphaelAnimation): RaphaelElement;
     prev: RaphaelElement;
     raphael: RaphaelStatic;
+
     remove(): any;
     removeData(key?: string): RaphaelElement;
+
     resume(anim?: RaphaelAnimation): RaphaelElement;
+
     setTime(anim: RaphaelAnimation): void;
     setTime(anim: RaphaelAnimation, value: number): RaphaelElement;
+
     show(): RaphaelElement;
+
     status(): { anim: RaphaelAnimation; status: number; }[];
     status(anim: RaphaelAnimation): number;
     status(anim: RaphaelAnimation, value: number): RaphaelElement;
+
     stop(anim?: RaphaelAnimation): RaphaelElement;
+
     toBack(): RaphaelElement;
     toFront(): RaphaelElement;
+
     touchcancel(handler: Function): RaphaelElement;
     touchend(handler: Function): RaphaelElement;
     touchmove(handler: Function): RaphaelElement;
     touchstart(handler: Function): RaphaelElement;
+
     transform(): string;
     transform(tstr: string): RaphaelElement;
     translate(dx:number, dy:number): RaphaelElement;
+
     unclick(handler?: Function): RaphaelElement;
     undblclick(handler?: Function): RaphaelElement;
     undrag(): RaphaelElement;
@@ -94,12 +113,14 @@ interface RaphaelElement {
 }
 
 interface RaphaelPath extends RaphaelElement {
+
     getPointAtLength(length: number): { x: number; y: number; alpha: number; };
     getSubpath(from: number, to: number): string;
     getTotalLength(): number;
 }
 
 interface RaphaelSet {
+
     clear(): void;
     exclude(element: RaphaelElement): boolean;
     forEach(callback: Function, thisArg?: any): RaphaelSet;
@@ -110,59 +131,75 @@ interface RaphaelSet {
     length: number;
 
     [key: number]: RaphaelElement;
+
     animate(params: {}, ms: number, easing?: string, callback?: Function): RaphaelElement;
     animate(animation: RaphaelAnimation): RaphaelElement;
     animateWith(el: RaphaelElement, anim: RaphaelAnimation, params: any, ms: number, easing?: string, callback?: Function): RaphaelElement;
     animateWith(el: RaphaelElement, anim: RaphaelAnimation, animation: RaphaelAnimation): RaphaelElement;
+
     attr(attrName: string, value: any): RaphaelElement;
     attr(attrName: string): any;
     attr(attrNames: string[]): any[];
     attr(params: {}): RaphaelElement;
-    click(handler: Function, context?: any): RaphaelSet;
+
     clone(): RaphaelElement;
+
     data(key: string): any;
     data(key: string, value: any): RaphaelElement;
-    dblclick(handler: Function): RaphaelElement;
-    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) => void, onstart: (x: number, y: number, event: DragEvent) => void, onend: (DragEvent: any) => void, mcontext?: any, scontext?: any, econtext?: any): RaphaelSet;
+
     getBBox(isWithoutTransform?: boolean): BoundingBox;
     glow(glow?: { width?: number; fill?: boolean; opacity?: number; offsetx?: number; offsety?: number; color?: string; }): RaphaelSet;
     hide(): RaphaelSet;
-    hover(f_in: Function, f_out: Function, icontext?: any, context?: any): RaphaelElement;
     id: string;
     insertAfter(): RaphaelElement;
     insertBefore(): RaphaelElement;
     isPointInside(x: number, y: number): boolean;
     isVisible(): boolean;
     matrix: RaphaelMatrix;
+
+    click(handler: Function, context?: any): RaphaelSet;
+    dblclick(handler: Function): RaphaelElement;
+    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) => void, onstart: (x: number, y: number, event: DragEvent) => void, onend: (DragEvent: any) => void, mcontext?: any, scontext?: any, econtext?: any): RaphaelSet;
+    hover(f_in: Function, f_out: Function, icontext?: any, context?: any): RaphaelElement;
     mousedown(handler: Function): RaphaelElement;
     mousemove(handler: Function): RaphaelElement;
     mouseout(handler: Function): RaphaelElement;
     mouseover(handler: Function): RaphaelElement;
     mouseup(handler: Function): RaphaelElement;
+
     next: RaphaelElement;
     onDragOver(f: Function): RaphaelElement;
     paper: RaphaelPaper;
     pause(anim?: RaphaelAnimation): RaphaelElement;
     prev: RaphaelElement;
     raphael: RaphaelStatic;
+
     remove(): any;
     removeData(key?: string): RaphaelElement;
+
     resume(anim?: RaphaelAnimation): RaphaelElement;
+
     setTime(anim: RaphaelAnimation): void;
     setTime(anim: RaphaelAnimation, value: number): RaphaelElement;
+
     show(): RaphaelElement;
+
     status(): { anim: RaphaelAnimation; status: number; }[];
     status(anim: RaphaelAnimation): number;
     status(anim: RaphaelAnimation, value: number): RaphaelElement;
+
     stop(anim?: RaphaelAnimation): RaphaelElement;
+
     toBack(): RaphaelElement;
     toFront(): RaphaelElement;
+
     touchcancel(handler: Function): RaphaelElement;
     touchend(handler: Function): RaphaelElement;
     touchmove(handler: Function): RaphaelElement;
     touchstart(handler: Function): RaphaelElement;
     transform(): string;
     transform(tstr: string): RaphaelElement;
+
     unclick(handler?: Function): RaphaelElement;
     undblclick(handler?: Function): RaphaelElement;
     undrag(): RaphaelElement;
@@ -180,6 +217,7 @@ interface RaphaelSet {
 }
 
 interface RaphaelMatrix {
+
     add(a: number, b: number, c: number, d: number, e: number, f: number, matrix: RaphaelMatrix): RaphaelMatrix;
     clone(): RaphaelMatrix;
     invert(): RaphaelMatrix;
@@ -193,6 +231,7 @@ interface RaphaelMatrix {
 }
 
 interface RaphaelPaper {
+
     add(JSON: any): RaphaelSet;
     bottom: RaphaelElement;
     canvas: SVGSVGElement;
@@ -226,6 +265,7 @@ interface RaphaelPaper {
 }
 
 interface RaphaelStatic {
+
     (container: HTMLElement, width: number, height: number, callback?: Function): RaphaelPaper;
     (container: string, width: number, height: number, callback?: Function): RaphaelPaper;
     (x: number, y: number, width: number, height: number, callback?: Function): RaphaelPaper;
@@ -262,7 +302,7 @@ interface RaphaelStatic {
     isPointInsideBBox(bbox: string, x: number, y: number): boolean;
     isPointInsidePath(path: string, x: number, y: number): boolean;
     matrix(a: number, b: number, c: number, d: number, e: number, f: number): RaphaelMatrix;
-    ninja(): void;
+
     parsePathString(pathString: string): string[];
     parsePathString(pathString: string[]): string[];
     parseTransformString(TString: string): string[];
