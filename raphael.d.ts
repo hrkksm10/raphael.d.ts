@@ -110,16 +110,15 @@ interface RaphaelGenericElement<TElement> {
     untouchend(handler?: Function): TElement;
     untouchmove(handler?: Function): TElement;
     untouchstart(handler?: Function): TElement;
-}
 
-interface RaphaelElement extends RaphaelGenericElement<RaphaelElement> {}
-
-interface RaphaelPath extends RaphaelGenericElement<RaphaelPath> {
-
+    // path element only method
+    getPath(): any;
     getPointAtLength(length: number): { x: number; y: number; alpha: number; };
     getSubpath(from: number, to: number): string;
     getTotalLength(): number;
 }
+
+interface RaphaelElement extends RaphaelGenericElement<RaphaelElement> {}
 
 interface RaphaelSet extends RaphaelGenericElement<RaphaelSet> {
 
@@ -166,8 +165,8 @@ interface RaphaelPaper {
     getFont(family: string, weight?: number, style?: string, stretch?: string): RaphaelFont;
     height: number;
     image(src: string, x: number, y: number, width: number, height: number): RaphaelElement;
-    path(pathString?: string): RaphaelPath;
-    print(x: number, y: number, str: string, font: RaphaelFont, size?: number, origin?: string, letter_spacing?: number): RaphaelPath;
+    path(pathString?: string): RaphaelElement; // path element
+    print(x: number, y: number, str: string, font: RaphaelFont, size?: number, origin?: string, letter_spacing?: number): RaphaelElement; // path element
     rect(x?: number, y?: number, width?: number, height?: number, r?: number): RaphaelElement;
     remove(): any;
     renderfix(): void;
