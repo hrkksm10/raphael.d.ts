@@ -249,4 +249,8 @@ interface RaphaelStatic {
     vml: boolean;
 }
 
+declare module "raphael" {
+
+    export = Raphael;
+}
 declare var Raphael: RaphaelStatic;
