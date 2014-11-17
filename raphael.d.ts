@@ -87,10 +87,10 @@ interface RaphaelGenericElement<TElement> {
     toBack(): TElement;
     toFront(): TElement;
 
-    touchcancel(handler: Function): TElement;
-    touchend(handler: Function): TElement;
-    touchmove(handler: Function): TElement;
-    touchstart(handler: Function): TElement;
+    touchcancel(handler: Function, context?: any): TElement;
+    touchend(handler: Function, context?: any): TElement;
+    touchmove(handler: Function, context?: any): TElement;
+    touchstart(handler: Function, context?: any): TElement;
 
     transform(): string;
     transform(tstr: string): TElement;
