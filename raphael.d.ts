@@ -1,4 +1,4 @@
-// Type definitions for Raphael 2.1.2k
+// Type definitions for Raphael 2.1.4k
 // Project: http://raphaeljs.com
 // Fork: https://github.com/hrkksm10/raphael
 
@@ -157,7 +157,7 @@ interface RaphaelPaper {
     clear(): void;
     defs: SVGDefsElement;
     ellipse(x: number, y: number, rx: number, ry: number): RaphaelElement;
-    forEach(callback: number, thisArg: any): RaphaelStatic;
+    forEach(callback: (el: RaphaelElement) => boolean, thisArg?: any): RaphaelPaper;
     getById(id: number): RaphaelElement;
     getElementByPoint(x: number, y: number): RaphaelElement;
     getElementsByPoint(x: number, y: number): RaphaelSet;
@@ -172,7 +172,7 @@ interface RaphaelPaper {
     renderfix(): void;
     safari(): void;
     set(elements?: RaphaelElement[]): RaphaelSet;
-    setFinish(): void;
+    setFinish(): RaphaelSet;
     setSize(width: number, height: number): void;
     setStart(): void;
     getViewBox(): any[];
